@@ -1,3 +1,4 @@
+// Dates
 var d = new Date;
 time = d.getHours();
 if ((time >= 9 && time <= 10) || (time >= 15 && time <= 16)) {
