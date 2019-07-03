@@ -1,7 +1,6 @@
-// Guessing
-var num = window.prompt("Enter a number");
+const num = window.prompt("Enter a number");
 if (num && parseInt(num, 10) <= 5 && parseInt(num, 10) >= 0) {
-	var random = Math.floor(6 * Math.random());
+	const random = Math.floor(6 * Math.random());
 	if (num == random) {
 		alert("You got it!");
 	} else if (num > random) {
