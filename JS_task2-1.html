@@ -1,0 +1,53 @@
+<html>
+
+<head>
+<title>Monthly price of kintone</title>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<style type="text/css">
+<!--
+H1 {
+    border:solid 3px #FFBF00;
+    padding:3px;
+    color:#190707;
+    width:430px;
+}
+DIV.st1 {
+    font-size:14pt;
+    font-weight:bold;
+}
+FORM {margin-left:20px;}
+-->
+</style>
+</head>
+<body>
+    <h1>Monthly price of kintone</h1>
+    <div class="st1">Charges for minimum number of users</div><br>
+    <form name="f1">
+        <input type="checkbox" onClick="calculateTotal(0)" id="a">Secure option（$5 per User）<br>
+        <input type="checkbox" onClick="calculateTotal(1)" id="b">Additional disks（$10 per 10GB）<br>
+        <br>Monthly price $
+        <input type="text" id="price" size="10" value="120">
+    </form>
+<script language="JavaScript">
+    let value = 120;
+    function calculateTotal(flag) {
+        if (!flag) {
+            if (document.getElementById('a').checked) {
+                value += 5;
+            } else {
+                value -= 5;
+            }
+            document.getElementById('price').value = value.toString();
+        } else {
+            if (document.getElementById('b').checked) {
+                value += 10;
+            } else {
+                value -= 10;
+            }
+            document.getElementById('price').value = value.toString();
+        }
+    }
+</script>
+</body>
+</html>
