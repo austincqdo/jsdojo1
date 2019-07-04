@@ -1,0 +1,63 @@
+@charset "utf-8";
+
+/*全体の設定
+---------------------------------------------------------------------------*/
+body {
+    margin: 0px;
+    padding: 0px;
+    color: #000;    /*全体の文字色*/
+    font-family:"ヒラギノ角ゴ Pro W3", "Hiragino Kaku Gothic Pro", "メイリオ", Meiryo, Osaka, "ＭＳ Ｐゴシック", "MS PGothic", sans-serif;   /*フォント種類*/
+    font-size: 14px;    /*文字サイズ*/
+    line-height: 2;     /*行間*/
+    -webkit-text-size-adjust: none;
+    margin: 0 auto;
+}
+
+table {border-collapse:collapse;font-size: 100%;border-spacing: 0;}
+
+/*contents（main,subを囲むブロック）
+---------------------------------------------------------------------------*/
+#contents {
+    padding-top: 40px;  /*コンテンツ上に空ける余白*/
+}
+
+.imgIcon{
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/*テーブル
+---------------------------------------------------------------------------*/
+/*ta1設定*/
+.ta1 {
+    width: 50%;
+    margin: 20px auto;
+    border-top: 2px solid #000;
+}
+.list .ta1 {
+    margin-bottom: 0;
+}
+.ta1 td, .ta1 th {
+    border-bottom: 2px solid #000;
+    padding: 10px;  /*ボックス内の余白*/
+    word-break: break-all;
+}
+/*テーブル１行目に入った見出し部分*/
+.ta1 th.table_heading {
+    width: auto;
+    text-align: left;   /*左よせ*/
+    background: #000;   /*背景色*/
+    color: #fff;        /*文字色*/
+    border-right: none;
+}
+/*ta1の左側ボックス*/
+.ta1 th {
+    width: 140px;   /*幅*/
+    text-align: right;
+    border-right: 1px dashed #000;  /*右側の線の幅、線種、色*/
+}
+/*ta1の右側ボックス*/
+.ta1 td {
+}
+
