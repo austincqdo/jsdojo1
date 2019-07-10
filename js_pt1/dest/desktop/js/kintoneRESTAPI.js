@@ -1,13 +1,11 @@
 (function() {
 	'use strict';
 	kintone.events.on('app.record.create.show', function(event) {
-		const appId = 37 //Replace with app id here
 		const params = {
-			'app': appId
+			'app': event.appId
 		};
 		kintone.api(kintone.api.url('/k/v1/app/form/fields'), 'GET', params).then(function(resp) {
 			const setRecords = kintone.app.record.get();
-			console.log(setRecords);
 			const actions = [];
 			const options = resp.properties.table.fields.action_5.options;
 			for (let i = 0; i < 6; i++) {
