@@ -21,7 +21,7 @@
 		}).addTo(mymap);
 		
 		const reference = L.marker(cybozuAddress).addTo(mymap);
-		reference.bindPopup("Nihombashi Tower").openPopup();
+		reference.bindPopup('Nihombashi Tower', {autoClose: false}).openPopup();
 
 		forwardGeocode(name, address);
 	})
@@ -41,6 +41,6 @@
 
 	function setMarker(name, address) {
 		const restaurant = L.marker(address).addTo(mymap);
-		restaurant.bindPopup(name).openPopup();
+		restaurant.bindPopup(name, {autoClose: false}).openPopup();
 	}
 })();
