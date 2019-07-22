@@ -10,7 +10,7 @@
 			const options = resp.properties.table.fields.action_5.options;
 			const num_of_opts = Object.keys(options).length - 1;
 			for (let i = 0; i < num_of_opts; i++) {
-				for (let key in options) {
+				for (const key in options) {
 					if (Number(options[key].index) === i) {
 						actions.push(options[key].label);
 					} 
