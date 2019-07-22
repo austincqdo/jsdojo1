@@ -8,15 +8,16 @@
 			const setRecords = kintone.app.record.get();
 			const actions = [];
 			const options = resp.properties.table.fields.action_5.options;
-			for (let i = 0; i < 6; i++) {
+			const num_of_opts = Object.keys(options).length - 1;
+			for (let i = 0; i < num_of_opts; i++) {
 				for (let key in options) {
-					if (options[key].index == i) {
+					if (Number(options[key].index) === i) {
 						actions.push(options[key].label);
 					} 
 				}
 			}
-			let rows = [];
-			for (let j = 0; j < 6; j++) {
+			const rows = [];
+			for (let j = 0; j < num_of_opts; j++) {
 				rows.push(createRow(actions[j]));
 			}
 			setRecords.record.table.value = rows;
