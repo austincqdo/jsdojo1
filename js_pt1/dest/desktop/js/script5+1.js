@@ -1,7 +1,7 @@
 (function() {
 	'use strict';
 	kintone.events.on('app.record.create.show', function(event) {
-		let actions = [
+		const actions = [
 			'Relentless quest',
 			'Mental and physical persistence',
 			'Empathy for the ideal',
@@ -9,7 +9,7 @@
 			'Increase knowledge and skills',
 			'Fairness and honesty'
 		]
-		let rows = [];
+		const rows = [];
 		for (let i = 0; i < 6; i++) {
 			rows.push(createRow(actions[i]));
 		}
@@ -30,7 +30,7 @@
 				},
 				'task': {
 					'type': 'MULTI_LINE_TEXT',
-					'value': undefined
+					'value': ''
 				}
 			}
 		};
