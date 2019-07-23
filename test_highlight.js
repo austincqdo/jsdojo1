@@ -1,5 +1,5 @@
 (function() {
-	kintone.events.on('app.record.detail.show', function(event) {
+	kintone.events.on('app.record.detail.show', function() {
 		// Text area
 		const text_area = kintone.app.record.getFieldElement('Text_area');
 		const text_pre = document.createElement('pre');
@@ -21,17 +21,19 @@
 		text_area.appendChild(text_pre);
 
 		// Blank space
-		const space = kintone.app.record.getSpaceElement('blank');
-		const pre = document.createElement('pre');
-		const code = document.createElement('code');
-		code.innerHTML = `
+		const blank_space = kintone.app.record.getSpaceElement('blank');
+		const space_pre = document.createElement('pre');
+		const space_code = document.createElement('code');
+		space_pre.setAttribute('style', 'margin-left: -200px');
+		space_code.innerHTML = `
 			int i = 0;
 			console.log(i);
 			function test() {
 				console.log("I LOVE KINTONE!!");
 			}`;
-		pre.appendChild(code);
-		space.appendChild(pre);
+		space_pre.appendChild(space_code);
+		blank_space.appendChild(space_pre);
+		console.log(blank_space);
 		// The only way we can delay instantiation for highlight.js 
 		// is to process each block individually using querySelectorAll().
 		document.querySelectorAll('pre code').forEach(function(block) {
