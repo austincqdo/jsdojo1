@@ -1,6 +1,5 @@
-// database of workers with name, position. use reduce to sort by position and use deburr to localize.
 (function() {
-	kintone.events.on('app.record.detail.show', function(event) { // should be app.record.edit.submit or app.record.edit.change.<fieldcode>
+	kintone.events.on('app.record.detail.show', function(event) { 
 		console.log(event);
 		const array_of_table_rows = event.record.table.value;
 		const sort_input = event.record.sort.value;
