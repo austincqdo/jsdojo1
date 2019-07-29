@@ -1,6 +1,5 @@
 (function() {
 	kintone.events.on('app.record.detail.show', function(event) { 
-		console.log(event);
 		const array_of_table_rows = event.record.table.value;
 		const sort_input = event.record.sort.value;
 		if (sort_input) {
