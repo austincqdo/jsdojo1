@@ -1,4 +1,4 @@
-(function() {
+ (function() {
 	'use strict';
 	kintone.events.on('app.record.detail.show', function(event) {
 		const record = event.record;
@@ -29,17 +29,16 @@
 
 	function forwardGeocode(name, address, map) {
 		const encodedAddress = encodeURI(address);
-		const settings = {
-			'crossDomain': true,
-			'url': 'https://us1.locationiq.com/v1/search.php?key=pk.7fa009bf60cb8aef22d9f72909124750&q=' + encodedAddress + '&format=json',
-			'method': 'GET'
-		}
+		const URL = 'https://us1.locationiq.com/v1/search.php?key=pk.7fa009bf60cb8aef22d9f72909124750&q=' + encodedAddress + '&format=json';
+		const method = 'GET';
 		function setMarker(name, address, map) {
 			const restaurant = L.marker(address).addTo(map);
 			restaurant.bindPopup(name, {autoClose: false}).openPopup();
 		}
-		$.ajax(settings).done(function(response) {
-			const address = [parseFloat(response[0].lat), parseFloat(response[0].lon)];
+		kintone.proxy(URL, method, {}, {}, function(response) {
+			const response_array = JSON.parse(response);
+			const address = [parseFloat(response_array[0].lat), parseFloat(response_array[0].lon)];
+			console.log(address);
 			setMarker(name, address, map);
 		});
 	}
