@@ -1,0 +1,89 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta http-equiv="x-ua-compatible" content="IE=edge">
+<title>template</title>
+<link href="../../_common/css/style.css" rel="stylesheet" type="text/css">
+<style>
+	.frame {
+		border-style: solid;
+	}
+	.center {
+		margin: 0 auto 0 auto;
+		width: 50%;
+	}
+	.hidden {
+		display: none;
+	}
+	.image {
+		margin-top: 30px;
+		width: 449px;
+		height: 449px;
+	}
+	.bottom {
+		text-align: center;
+		user-select: none;
+	}
+	.text {
+		display: inline;
+	}
+	.arrow {
+		font-size: 70px;
+	}
+	#which {
+		font-size: 40px;
+	}
+</style>
+</head>
+<body>
+<header>
+<div class="header-contents">
+<h1>タイトル</h1>
+<h2>サブタイトル</h2>
+</div><!-- /.header-contents -->
+</header>
+<div class="main-wrapper">
+<section>
+	<div class="frame">
+		<div class="center">
+			<img src="./images/img0.jpg" class="image" id="img0">
+			<img src="./images/img1.jpg" class="hidden image" id="img1">
+			<img src="./images/img2.jpg" class="hidden image" id="img2">
+			<img src="./images/img3.jpg" class="hidden image" id="img3">
+			<img src="./images/img4.jpg" class="hidden image" id="img4">
+		</div>
+		<div class="bottom">
+			<div class="text arrow" id="left">&lsaquo; &nbsp;</div>
+			<div class="text" id="which"></div>
+			<div class="text arrow" id="right">&nbsp; &rsaquo;</div>
+		</div>
+	</div>
+</section>
+</div><!-- /.main-wrapper -->
+<footer>JavaScript Samples</footer>
+<script src="https://js.kintone.com/jquery/3.4.1/jquery.min.js"></script>
+<script>
+	function mod(n, m) {
+  		return ((n % m) + m) % m;
+	}
+	$(document).ready(function() {
+		let i = 0;
+		$('#which').text('1/5');
+		$('#right').on('click', function() {
+			$('#img' + i).addClass('hidden');
+			i = mod(i + 1, 5);
+			$('#img'+ i).removeClass('hidden');
+			$('#which').text(i + 1 + '/5');
+		})
+		$('#left').on('click', function() {
+			$('#img' + i).addClass('hidden');
+			i = mod(i - 1, 5);
+			$('#img' + i).removeClass('hidden');
+			$('#which').text(i + 1 + '/5');
+		})
+	})
+</script>
+</body>
+</html>
