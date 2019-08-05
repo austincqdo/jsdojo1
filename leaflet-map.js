@@ -1,7 +1,6 @@
 (function() {
 	'use strict';
 	kintone.events.on('app.record.detail.show', function(event) {
-		const locationIQToken = 'Insert Access Token Here';
 		const record = event.record;
 		const address = record.Address.value;
 		const headerSpace = kintone.app.record.getHeaderMenuSpaceElement();
@@ -29,6 +28,7 @@
 	})
 
 	function forwardGeocode(name, address, map) {
+		const locationIQToken = 'Insert Access Token Here';
 		const encodedAddress = encodeURI(address);
 		const URL = 'https://us1.locationiq.com/v1/search.php?key=' + locationIQToken + '&q=' + encodedAddress + '&format=json';
 		const method = 'GET';
