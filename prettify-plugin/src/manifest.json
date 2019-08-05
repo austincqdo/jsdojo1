@@ -1,0 +1,41 @@
+{
+  "manifest_version": 1,
+  "version": 1,
+  "type": "APP",
+  "desktop": {
+    "js": [
+      "https://js.cybozu.com/jquery/3.3.1/jquery.min.js",
+      "js/desktop.js",
+      "js/prettify.js"
+    ],
+    "css": [
+      "css/51-modern-default.css",
+      "css/desktop.css",
+      "css/tomorrow_night_bright.css"
+    ]
+  },
+  "icon": "image/icon.png",
+  "homepage_url": {
+    "en": "https://developer.kintone.io/hc/en-us/articles/360000349302"
+  },
+  "config": {
+    "html": "html/config.html",
+    "js": [
+      "https://js.cybozu.com/jquery/3.3.1/jquery.min.js",
+      "js/config.js",
+      "js/kintone-config-helper.js"
+    ],
+    "css": [
+      "css/51-modern-default.css",
+      "css/config.css"
+    ],
+    "required_params": [
+    ]
+  },
+  "name": {
+    "en": "prettify-plugin"
+  },
+  "description": {
+    "en": "Syntax highlighting for a Text Area Field!"
+  }
+}
