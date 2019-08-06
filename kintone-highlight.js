@@ -7,7 +7,8 @@
 		const children = text_area.children;
 		const len_of_children = children.length;
 		for (let i = 0; i < len_of_children; i++) {
-			text_code.innerHTML += encodeURIComponent(children[i]);
+			console.log(children[i]);
+			text_code.innerHTML += children[i].textContent.replace('<', '&lt;').replace('>', '&gt;').replace('/', '&#x2F');
 			linebreak = document.createElement('br');
 			text_code.appendChild(linebreak);
 		}
