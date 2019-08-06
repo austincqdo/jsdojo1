@@ -1,6 +1,6 @@
 (function() {
 	'use strict';
-	kintone.events.on('app.record.detail.show', function(event) {
+	kintone.events.on(['app.record.detail.show', 'app.record.edit.change.sort'], function(event) {
 		const array_of_table_rows = event.record.table.value;
 		const sort_input = event.record.sort.value;
 		const employee_roles = {};
@@ -25,7 +25,11 @@
 				// and so on...
 			};
 			const blank_space = kintone.app.record.getSpaceElement('space');
+			const list_area = document.createElement('div');
 			const ul = document.createElement('ul');
+			while (blank_space.firstChild) {
+				blank_space.removeChild(blank_space.firstChild);
+			}
 			for (const role in employee_roles) {
 				if (employee_roles.hasOwnProperty(role)) {
 					if (sort_input.includes(role)) {
@@ -42,7 +46,8 @@
 					}
 				}
 			}
-			blank_space.appendChild(ul);
+			list_area.appendChild(ul);
+			blank_space.appendChild(list_area);
 		}
 	});
 })(); 
