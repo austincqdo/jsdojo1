@@ -79,6 +79,7 @@
                             title: record[TEXTFIELD].value,
                             start: record[DATEFIELD].value,
                             allDay: true,
+                            borderColor: '#00ff7f',
                             url: appURL
                         });
                     }
