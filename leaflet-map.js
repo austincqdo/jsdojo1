@@ -8,11 +8,12 @@
 		const name = record.Place.value;
 
 		const mapSpace = document.createElement('div');
+		const spaceName = 'kintoneArea';
 		mapSpace.style.height = '300px';
-		mapSpace.setAttribute('id', 'kintone');
+		mapSpace.setAttribute('id', spaceName);
 		headerSpace.appendChild(mapSpace);
 
-		const kintoneMap = L.map('kintone').setView(kintoneAddress, 16);
+		const kintoneMap = L.map(spaceName).setView(kintoneAddress, 16);
 		L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager_nolabels/{z}/{x}/{y}.png', {
 	  		maxZoom: 18
 		}).addTo(kintoneMap);
