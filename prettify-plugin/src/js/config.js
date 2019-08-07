@@ -30,18 +30,12 @@ jQuery.noConflict();
             }
 
             resp.forEach(function(respField) {
-                const $option = $('<option></option>');
-                switch (respField.type) {
-                    case 'MULTI_LINE_TEXT':
-                        $option.attr('value', respField.code);
-                        $option.text(respField.label);
-                        $text.forEach(function(field) {
-                            field.append($option.clone());
-                        });
-                        break;
-                    default:
-                        break;
-                }
+                const $option = $('<option>');
+                $option.attr('value', respField.code);
+                $option.text(respField.label);
+                $text.forEach(function(field) {
+                    field.append($option.clone());
+                });
             });
 
             // Returning to settings page
