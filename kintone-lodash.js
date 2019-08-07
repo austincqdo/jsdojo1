@@ -10,7 +10,7 @@
 		const table_field = 'table';
 
 		const array_of_table_rows = event.record[table_field].value;
-		const sort_input = event.record.sort.value;
+		const sort_input = event.record[checkbox_field].value;
 		if (sort_input) {
 			const grouped_roles = _.groupBy(array_of_table_rows, function(employee) {
 				const role = employee.value.role.value;
