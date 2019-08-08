@@ -1,5 +1,14 @@
 (function() {
     kintone.events.on('app.record.detail.show', function() {
+        const sanitizeStr = function(str) {
+            str = str.replace('&', '&amp;');
+            str = str.replace('<', '&lt;');
+            str = str.replace('>', '&gt;');
+            str = str.replace('/', '&#x2F;');
+            str = str.replace('"', '&quot;');
+            return str;
+        };
+
         // Text area
         const text_area = kintone.app.record.getFieldElement('Text_area');
         const text_pre = document.createElement('pre');
@@ -7,7 +16,7 @@
         const children = text_area.children;
         const len_of_children = children.length;
         for (let i = 0; i < len_of_children; i++) {
-            text_code.innerHTML += children[i].textContent.replace('<', '&lt;').replace('>', '&gt;').replace('/', '&#x2F');
+            text_code.innerHTML += sanitizeStr(children[i].textContent);
             linebreak = document.createElement('br');
             text_code.appendChild(linebreak);
         }
